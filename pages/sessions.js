@@ -41,6 +41,9 @@ class sessions extends React.Component {
     render() {
         return (
             <div>
+            <Link href='/'>
+                <a>Home</a>
+            </Link>
                 <ul>
                     {this.state.sessionData.map((session) =>
                         <li key={session.id}>
