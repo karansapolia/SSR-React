@@ -5,9 +5,19 @@ import SessionCard from "../src/SessionCard";
 
 class Index extends React.Component {
 
+    
+    static GetSessionsUrl() {
+        if(process.env.NODE_ENV === "production") {
+            return process.env.RESTURL_SESSIONS_PROD
+                || publicRuntimeConfig.RESTURL_SESSIONS_PROD;
+        } else {
+            return process.env.RESTURL_SESSIONS_DEV;
+        }
+    }
+    
     static async getInitialProps() {
 
-        var promise = axios.get('http://localhost:4000/sessions').then(response => {
+        var promise = axios.get(Index.GetSessionsUrl()).then(response => {
             return {
                 hasErrored: false,
                 sessionData: response.data

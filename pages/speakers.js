@@ -2,11 +2,22 @@ import react from "react";
 import axios from 'axios';
 import SpeakerCard from "../src/SpeakerCard";
 
+import getConfig from 'next/config';
+const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
 
 class Speakers extends React.Component {
 
+    static GetSpeakerUrl() {
+        if(process.env.NODE_ENV === 'production') {
+            return process.env.RESTURL_SPEAKERS_PROD
+                || publicRuntimeConfig.RESTURL_SPEAKERS_PROD;
+        } else {
+            return process.env.RESTURL_SPEAKERS_DEV;
+        }
+    }
+    
     static async getInitialProps () {
-        var promise = axios.get('http://localhost:4000/speakers').
+        var promise = axios.get(Speakers.GetSpeakerUrl()).
         then(response => {
             return {
                 hasErrored: false,
