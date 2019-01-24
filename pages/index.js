@@ -11,7 +11,7 @@ class Index extends Component {
 
     render() {
         return (
-                <div>
+            <div>
                 <div className="container">
                     <div className="row">
                         <div className="col margintopbottom">
@@ -23,9 +23,8 @@ class Index extends Component {
                         </div>
                     </div>
                 </div>
-                </div>
-
-        );
+            </div>
+        )
     }
 }
 

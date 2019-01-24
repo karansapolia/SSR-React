@@ -1,10 +1,16 @@
+/*body {*/
+    /*background: black;*/
+/*}*/
+
 body {
-    background: linear-gradient(45deg, #1870ed 0, #f10f88 100%);
+    background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
     font-family: 'Montserrat', 'sans-serif';
     min-height: 100vh;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .clock {
     position: absolute;
     top: 50%;
@@ -14,4 +20,6 @@ body {
     font-size: 60px;
     font-family: Orbitron;
     letter-spacing: 7px;
+
+
 }

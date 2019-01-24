@@ -1,19 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 import axios from 'axios';
-import Link from 'next/link';
+import SessionCard from "../src/SessionCard";
 
-import SessionCard from '../src/SessionCard';
 
-class sessions extends React.Component {
+class Index extends React.Component {
 
     static async getInitialProps() {
-        var promise = axios.get('http://localhost:4000/sessions').
-            then(response => {
-                return {
-                    hasErrored: false,
-                    sessionData: response.data
-                };
-             })
+
+        var promise = axios.get('http://localhost:4000/sessions').then(response => {
+            return {
+                hasErrored: false,
+                sessionData: response.data
+            };
+        })
             .catch(error => {
                 return {
                     hasErrored: true,
@@ -21,9 +20,11 @@ class sessions extends React.Component {
                 }
             });
         return promise;
+
+
     }
 
-    constructor(props)  {
+    constructor(props) {
         super(props);
         this.state = {
             hasErrored: props.hasErrored,
@@ -31,6 +32,7 @@ class sessions extends React.Component {
             sessionData: props.sessionData
         }
     }
+
 
     componentDidMount() {
 
@@ -42,19 +44,22 @@ class sessions extends React.Component {
 
     render() {
         return (
-            <div className = "container">
-                <div className='row'>
-                    <div className='card-deck'>
+            <div className="container">
+                <div className="row">
+                    <div className="card-deck">
                         {this.state.sessionData.map((session) =>
-                            <div className='card col-4 cardmin margintopbottom' key={session.id}>
+                            <div className="card col-4 cardmin margintopbottom" key={session.id}>
                                 <SessionCard session={session}/>
                             </div>
                         )}
                     </div>
                 </div>
             </div>
+
         )
     }
+
 }
 
-export default sessions;
+export default Index
+

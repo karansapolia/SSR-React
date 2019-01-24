@@ -1,19 +1,18 @@
-import React from 'react';
+import react from "react";
 import axios from 'axios';
-import Link from 'next/link';
+import SpeakerCard from "../src/SpeakerCard";
 
-import SpeakerCard from '../src/SpeakerCard';
 
 class Speakers extends React.Component {
 
-    static async getInitialProps() {
+    static async getInitialProps () {
         var promise = axios.get('http://localhost:4000/speakers').
-            then(response => {
-                return {
-                    hasErrored: false,
-                    speakerData: response.data
-                };
-            })
+        then(response => {
+            return {
+                hasErrored: false,
+                speakerData: response.data
+            };
+        })
             .catch(error => {
                 return {
                     hasErrored: true,
@@ -22,8 +21,6 @@ class Speakers extends React.Component {
             });
         return promise;
     }
-
-
 
     constructor(props) {
         super(props);
@@ -34,27 +31,34 @@ class Speakers extends React.Component {
         }
     }
 
+
     componentDidMount() {
 
     }
 
-    componentWillUnmount() {
+     componentWillUnmount() {
 
     }
 
+
     render() {
-        <div className='container'>
-            <div className='row'>
-                <div className='card-deck'>
-                    {this.state.speakerData.map((speaker) =>
-                        <div className='card col-4 cardmin margintopbottom20' key={speaker.id}>
-                            <SpeakerCard speaker={speaker}/>
-                        </div>
-                    )}
+        return (
+            <div className="container">
+                <div className="row">
+                    <div className="card-deck">
+                        {this.state.speakerData.map((speaker) =>
+                            <div className="card col-4 cardmin margintopbottom20" key={speaker.id}>
+                                <SpeakerCard speaker={speaker}/>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        )
     }
 }
 
 export default Speakers;
+
+
+
