@@ -112,7 +112,7 @@ class bootstrap extends Component {
                                 <div className="card-body">
                                     <h4 className="card-title"><a href="#">How JavaScript Works</a></h4>
                                     <h6 className="card-title">Douglas Crockford</h6>
-                                    <p className="card-text">Douglas Crockford is the author of <b>How JavaScript Works</b>, the shocking best seller that rips the lid off behind the scenes. In this light-hearted romp thru the world&#39s most misunderstood programming language, Crockford reveals what is actually going on, and how we can use this to write better programs. "
+                                    <p className="card-text">Douglas Crockford is the author of <b>How JavaScript Works</b>, the shocking best seller that rips the lid off behind the scenes. In this light-hearted romp thru the world's most misunderstood programming language, Crockford reveals what is actually going on, and how we can use this to write better programs. "
                                     </p>
 
                                 </div>
